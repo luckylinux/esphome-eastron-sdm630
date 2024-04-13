@@ -1,0 +1,16 @@
+# Net = |Import| - |Export|
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 10
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Net_Reactive_Energy_L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Net Reactive Energy L1"
+    register_type: holding
+    address: 30399
+    unit_of_measurement: "kVarh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

@@ -1,0 +1,4 @@
+ota:
+  safe_mode: true
+  version: 2
+  password: !secret ota_password

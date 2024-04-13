@@ -1,0 +1,27 @@
+packages:
+  common: !include esphome-config-oneoff.yaml
+
+  main_meter: !include
+    file: esphome-config-each.yaml
+    vars:
+       slave_modbus_controller_address: 0x1               # Modbus Address of the Slave Device (used in the Slave-Specific modbus_controller)
+       slave_modbus_controller_id: "modbus_main"          # ID for the Modbus Controller associated with this Slave Device
+       slave_entities_prefix_id: "main"                   # No Space or Dashes (-) !
+       slave_entities_prefix_name: "Main"                 # Normal Characters are allowed
+
+  load_meter: !include
+    file: esphome-config-each.yaml
+    vars:
+       slave_modbus_controller_address: 0x2               # Modbus Address of the Slave Device (used in the Slave-Specific modbus_controller)
+       slave_modbus_controller_id: "modbus_load"          # ID for the Modbus Controller associated with this Slave Device
+       slave_entities_prefix_id: "load"                   # No Space or Dashes (-) !
+       slave_entities_prefix_name: "Load"                 # Normal Characters are allowed  
+
+  inverter_meter: !include
+    file: esphome-config-each.yaml
+    vars:
+       slave_modbus_controller_address: 0x3               # Modbus Address of the Slave Device (used in the Slave-Specific modbus_controller)
+       slave_modbus_controller_id: "modbus_inverter"      # ID for the Modbus Controller associated with this Slave Device
+       slave_entities_prefix_id: "inverter"               # No Space or Dashes (-) !
+       slave_entities_prefix_name: "Inverter"             # Normal Characters are allowed
+

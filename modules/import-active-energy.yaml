@@ -1,0 +1,46 @@
+sensor:
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 10
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Import_Active_Energy_L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Import Active Energy L1"
+    register_type: holding
+    address: 30347
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 10
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Import_Active_Energy_L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Import Active Energy L2"
+    register_type: holding
+    address: 30349
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 10
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Import_Active_Energy_L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Import Active Energy L3"
+    register_type: holding
+    address: 30351
+    unit_of_measurement: "kWh"
+    state_class: "total_increasing"
+    device_class: energy
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

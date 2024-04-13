@@ -1,0 +1,6 @@
+modbus_controller:
+  - id: ${slave_modbus_controller_id}                 # ID of the Modbus Controller of the Slave Device
+    address: ${slave_modbus_controller_address}       # Address of the Slave Device
+    modbus_id: modbus1                                # ID of the Modbus Hub (DO NOT CHANGE !)
+    setup_priority: -10
+    update_interval: 15sec

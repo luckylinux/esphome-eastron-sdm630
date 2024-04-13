@@ -1,0 +1,16 @@
+uart:
+  id: mod_bus
+  # Default for ESP32
+  #tx_pin: 17
+  #rx_pin: 16
+
+  # Using M5Stack RS485 Isolated Unit (CA-IS3082W) - SKU: U094 together with Atom S3 Lite
+  tx_pin: GPIO2
+  rx_pin: GPIO1
+
+  baud_rate: 9600
+  stop_bits: 1
+
+modbus:
+  id: modbus1
+# flow_control_pin: 4 #for use when you use a rs485 board without auto flow control. Like the rs485 max board.

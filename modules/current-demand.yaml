@@ -1,0 +1,56 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Demand_L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Demand Demand L1"
+    register_type: holding
+    address: 30259
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Demand_L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Demand L2"
+    register_type: holding
+    address: 30261
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Demand_L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Demand L3"
+    register_type: holding
+    address: 30263
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Demand_N"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Demand N"
+    register_type: holding
+    address: 30105
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

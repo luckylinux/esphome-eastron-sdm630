@@ -1,0 +1,52 @@
+packages:
+  # One controller (with different slave address) for each Slave Device
+  modbus_controller: !include config/modbus_controller.yaml
+
+  # Data Sources
+
+  # Main Instantanous Quantities
+  voltage-phase: !include modules/voltage-phase.yaml
+  voltage-line: !include modules/voltage-line.yaml
+  current: !include modules/current.yaml
+  frequency: !include modules/frequency.yaml
+
+  active-power: !include modules/active-power.yaml
+  reactive-power: !include modules/reactive-power.yaml
+  apparent-power: !include modules/apparent-power.yaml
+
+  # Current Demand
+  current-demand: !include modules/current-demand.yaml
+  
+  # Power Quality
+  thd-voltage-phase: !include modules/thd-voltage-phase.yaml
+  thd-voltage-line: !include modules/thd-voltage-line.yaml
+  thd-current: !include modules/thd-current.yaml
+  phase-angle: !include modules/phase-angle.yaml
+
+  # Import
+  import-active-energy: !include modules/import-active-energy.yaml
+  import-active-energy-since-last-reset: !include modules/import-active-energy-since-last-reset.yaml
+  import-reactive-energy: !include modules/import-reactive-energy.yaml
+  import-reactive-energy-since-last-reset: !include modules/import-reactive-energy-since-last-reset.yaml
+
+  # Export
+  export-active-energy: !include modules/export-active-energy.yaml
+  export-active-energy-since-last-reset: !include modules/export-active-energy-since-last-reset.yaml
+  export-reactive-energy: !include modules/export-reactive-energy.yaml
+  export-reactive-energy-since-last-reset: !include modules/export-reactive-energy-since-last-reset.yaml
+
+  # Total
+  total-active-energy: !include modules/total-active-energy.yaml
+  total-reactive-energy: !include modules/total-reactive-energy.yaml
+  total-apparent-energy-since-last-reset: !include modules/total-apparent-energy-since-last-reset.yaml
+  total-charge-since-last-reset: !include modules/total-charge-since-last-reset.yaml
+
+  # Net
+  net-active-energy: !include modules/net-active-energy.yaml
+  net-reactive-energy: !include modules/net-reactive-energy.yaml
+
+  # Statistics
+  statistics-maximum-active-power-demand: !include modules/statistics-maximum-active-power-demand.yaml
+  statistics-maximum-apparent-power-demand: !include modules/statistics-maximum-apparent-power-demand.yaml
+  statistics-maximum-current-demand: !include modules/statistics-maximum-current-demand.yaml
+  

@@ -1,0 +1,84 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current L1"
+    register_type: holding
+    address: 30007
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current L2"
+    register_type: holding
+    address: 30009
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current L3"
+    register_type: holding
+    address: 30011
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_N"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current N"
+    register_type: holding
+    address: 30225
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Average"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Average"
+    register_type: holding
+    address: 30047
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Current_Sum"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Current Sum"
+    register_type: holding
+    address: 30049
+    unit_of_measurement: "A"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

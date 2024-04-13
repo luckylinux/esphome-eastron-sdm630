@@ -1,0 +1,17 @@
+esphome:
+  name: ${name}
+  platformio_options:
+    board_build.flash_mode: dio
+    build_flags:
+      - -DCONFIG_ARDUINO_LOOP_STACK_SIZE=32768
+  comment: ${device_description}
+  project:
+    name: !secret project_name
+    version: !secret project_version
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  framework:
+#    type: arduino  # Original
+    type: esp-idf    # Testing

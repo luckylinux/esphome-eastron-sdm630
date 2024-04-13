@@ -1,0 +1,56 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Voltage_Line_L1L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Voltage Line L1L2"
+    register_type: holding
+    address: 30201
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Voltage_Line_L2L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Voltage Line L2L3"
+    register_type: holding
+    address: 30203
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Voltage_Line_L3L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Voltage Line L3L1"
+    register_type: holding
+    address: 30205
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Voltage_Line_Average"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Voltage Line (Average)"
+    register_type: holding
+    address: 30207
+    unit_of_measurement: "V"
+    state_class: "measurement"
+    accuracy_decimals: 0
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

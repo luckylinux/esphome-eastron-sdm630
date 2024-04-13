@@ -1,0 +1,56 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_THD_Voltage_Line_L1L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - THD Voltage Line (L1L2)"
+    register_type: holding
+    address: 30335
+    unit_of_measurement: "%"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_THD_Voltage_Line_L2L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - THD Voltage Line (L2L3)"
+    register_type: holding
+    address: 30337
+    unit_of_measurement: "%"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_THD_Voltage_Line_L3L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - THD Voltage Line (L3L1)"
+    register_type: holding
+    address: 30339
+    unit_of_measurement: "%"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_THD_Voltage_Line_Average"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - THD Voltage Line (Average)"
+    register_type: holding
+    address: 30341
+    unit_of_measurement: "%"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

@@ -1,0 +1,14 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Total_Charge_Since_Last_Reset"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Total Charge Since Last Reset"
+    register_type: holding
+    address: 30083
+    unit_of_measurement: "Ah"
+    state_class: "measurement"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD

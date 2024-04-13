@@ -1,0 +1,101 @@
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L1"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Power Factor L1"
+    register_type: holding
+    address: 30031
+    unit_of_measurement: "-"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L2"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Power Factor L2"
+    register_type: holding
+    address: 30033
+    unit_of_measurement: "-"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L3"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Power Factor L3"
+    register_type: holding
+    address: 30035
+    unit_of_measurement: "-"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+
+  - platform: modbus_controller
+    modbus_controller_id: ${slave_modbus_controller_id}
+    skip_updates: 2
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_Total"
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Power Factor Total"
+    register_type: holding
+    address: 30063
+    unit_of_measurement: "-"
+    state_class: "measurement"
+    accuracy_decimals: 2
+    filters:
+      - multiply: 1.0
+    value_type: U_DWORD
+
+
+
+text_sensor:
+  - platform: template
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Nature_Power_Factor_L1
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Nature Power Factor L1"
+    lambda: |-
+      if (id("${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L1").state > 0) {
+        return "Capacitive Load";
+      } else {
+        return "Inductive Load";
+      }
+    update_interval: 5s
+  - platform: template
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Nature_Power_Factor_L2
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Nature Power Factor L2"
+    lambda: |-
+      if (id("${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L2").state > 0) {
+        return "Capacitive Load";
+      } else {
+        return "Inductive Load";
+      }
+    update_interval: 5s
+  - platform: template
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Nature_Power_Factor_L3
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Nature Power Factor L3"
+    lambda: |-
+      if (id("${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_L3").state > 0) {
+        return "Capacitive Load";
+      } else {
+        return "Inductive Load";
+      }
+    update_interval: 5s
+  - platform: template
+    id: "${entities_id_prefix}_${slave_entities_prefix_id}_Nature_Power_Factor_Total
+    name: "${entities_name_prefix} - ${slave_entities_prefix_name} - Nature Power Factor Total"
+    lambda: |-
+      if (id("${entities_id_prefix}_${slave_entities_prefix_id}_Power_Factor_Total").state > 0) {
+        return "Capacitive Load";
+      } else {
+        return "Inductive Load";
+      }
+    update_interval: 5s
